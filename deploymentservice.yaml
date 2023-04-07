@@ -30,7 +30,7 @@ spec:
     app: spring-boot-k8s
   ports:
     - protocol: "TCP"
-      port: 8443 # The port that the service is running on in the cluster
+      port: 80 # The port that the service is running on in the cluster
       nodePort: 32003
       targetPort: 80
   type: NodePort # type of the service.
