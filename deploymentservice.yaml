@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-k8s
-        image: vishalbasani/devops-integration:31
+        image: vishalbasani/devops-integration:32
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80 # The port that the container is running on in the cluster
