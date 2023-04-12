@@ -32,4 +32,4 @@ spec:
     - protocol: "TCP"
       port: 80 # The port that the service is running on in the cluster
       targetPort: 80
-  type: LoadBalancer # type of the service.
+  type: NodePort # type of the service.
