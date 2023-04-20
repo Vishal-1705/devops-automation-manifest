@@ -1,13 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: spring-boot-k8s-deployment
+  name: spring-boot-k8s
   namespace: flux-demo
+  labels:
+    app: spring-boot-k8s
+   annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.spring-boot: semver:~1.0.0
 spec:
   selector:
     matchLabels:
       app: spring-boot-k8s
   replicas: 3 # Number of replicas that will be created for this deployment
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -16,6 +25,7 @@ spec:
       containers:
       - name: spring-boot-k8s
         image: vishalbasani/devops-integration:36
-        imagePullPolicy: IfNotPresent
+        # imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 80 # The port that the container is running on in the cluster
+        - name: spring-boot-k8s-port
+          containerPort: 80 # The port that the container is running on in the cluster
