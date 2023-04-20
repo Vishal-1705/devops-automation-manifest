@@ -23,10 +23,10 @@ spec:
         app: spring-boot-k8s
     spec:
       containers:
-      - name: spring-boot-k8s
-        image: vishalbasani/devops-integration:36
-        # imagePullPolicy: IfNotPresent
-        ports:
-        - name: spring-boot-k8s-port
-          containerPort: 80 # The port that the container is running on in the cluster
-      serviceAccountName: binding-connector
+        - name: spring-boot-k8s
+          image: vishalbasani/devops-integration:36
+          # imagePullPolicy: IfNotPresent
+          ports:
+          - name: spring-boot-k8s-port
+            containerPort: 80 # The port that the container is running on in the cluster
+        serviceAccountName: binding-connector
