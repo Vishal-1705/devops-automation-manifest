@@ -7,7 +7,7 @@ metadata:
     app: spring-boot-k8s
   annotations:
     fluxcd.io/automated: "true"
-    #fluxcd.io/tag.devops-integration: v1
+    fluxcd.io/tag.devops-integration: semver:~1.0.0
 spec:
   selector:
     matchLabels:
@@ -29,4 +29,4 @@ spec:
         ports:
         - name: spring-boot-k8s-port
           containerPort: 80 # The port that the container is running on in the cluster
-      serviceAccountName: binding-connector
+      #serviceAccountName: binding-connector
